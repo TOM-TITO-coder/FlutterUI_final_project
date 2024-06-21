@@ -1,4 +1,5 @@
 import 'package:cambo_travel_app/constants.dart';
+import 'package:cambo_travel_app/pages/payment_page.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
@@ -180,7 +181,11 @@ class DetailPage extends StatelessWidget {
           ),
           // button
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const PaymentPage();
+              }));
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
                 fixedSize: Size(size.width, size.height * 0.08)),

@@ -1,5 +1,6 @@
 import 'package:cambo_travel_app/constants.dart';
 import 'package:cambo_travel_app/pages/detail_page.dart';
+import 'package:cambo_travel_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
@@ -311,7 +312,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const HomePage();
+                          },
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       fixedSize: Size(
                         MediaQuery.of(context).size.width * 0.8,
@@ -328,7 +338,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       foregroundColor: primaryColor,
                     ),
                     child: const Text(
-                      "LogIn",
+                      "Sign Up",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
