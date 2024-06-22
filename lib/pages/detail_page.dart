@@ -3,7 +3,13 @@ import 'package:cambo_travel_app/pages/payment_page.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
-  DetailPage({super.key});
+  final String urlImg;
+  final String title;
+  DetailPage({
+    super.key,
+    required this.title,
+    required this.urlImg,
+  });
 
   final List<CardOption> _listCard = [
     const CardOption(
@@ -36,13 +42,11 @@ class DetailPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(34),
                   //color: Colors.green,
-                  image: const DecorationImage(
-                    image: NetworkImage(
-                      "https://th.bing.com/th/id/OIP.nhH9nGh8onFNyFdWs9FhWwEsDP?rs=1&pid=ImgDetMain",
-                    ),
+                  image: DecorationImage(
+                    image: AssetImage(urlImg),
                     fit: BoxFit.cover,
-                    colorFilter:
-                        ColorFilter.mode(Colors.black, BlendMode.exclusion),
+                    colorFilter: const ColorFilter.mode(
+                        Colors.black, BlendMode.exclusion),
                   ),
                 ),
                 child: Padding(
@@ -133,9 +137,9 @@ class DetailPage extends StatelessWidget {
           SizedBox(
             height: size.height * 0.02,
           ),
-          const Text(
-            "AngkorWat Temple",
-            style: TextStyle(
+          Text(
+            title,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 28,
             ),

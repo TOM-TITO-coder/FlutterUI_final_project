@@ -1,5 +1,7 @@
 import 'package:cambo_travel_app/data.dart';
 import 'package:cambo_travel_app/models/product.dart';
+import 'package:cambo_travel_app/pages/calendar_page.dart';
+import 'package:cambo_travel_app/pages/detail_page.dart';
 import 'package:cambo_travel_app/pages/favorite_page.dart';
 import 'package:cambo_travel_app/pages/profile_page.dart';
 import 'package:cambo_travel_app/pages/widgets/card_product.dart';
@@ -17,7 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   static const List _pages = [
     HomePageUI(),
-    Text("Calendar"),
+    CalendarPage(),
     HomePageUI(),
     FavoritePage(),
     ProfilePage(),
@@ -167,14 +169,21 @@ class HomePageUI extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (context, index) {
           Product product = products[index];
-          return Container(
-            color: Colors.white,
-            margin: const EdgeInsets.only(right: 10),
-            child: CardProduct(
-              title: product.title,
-              location: product.location,
-              rate: product.rate,
-              urlImg: product.urlImg,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailPage(title: product.title, urlImg: product.urlImg);
+              }));
+            },
+            child: Container(
+              color: Colors.white,
+              margin: const EdgeInsets.only(right: 10),
+              child: CardProduct(
+                title: product.title,
+                location: product.location,
+                rate: product.rate,
+                urlImg: product.urlImg,
+              ),
             ),
           );
         },

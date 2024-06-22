@@ -1,5 +1,5 @@
+import 'package:cambo_travel_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class PaymentPage extends StatefulWidget {
   const PaymentPage({super.key});
@@ -66,7 +66,14 @@ class _PaymentPageState extends State<PaymentPage> {
             ],
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return const HomePage();
+                }),
+              );
+            },
             style: const ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
                 Color(0xff2563EB),
