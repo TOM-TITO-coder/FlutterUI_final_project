@@ -178,11 +178,11 @@ class _CalendarPageState extends State<CalendarPage> {
         },
         calendarStyle: const CalendarStyle(
           todayDecoration: BoxDecoration(
-            color: Colors.orange,
+            color: primaryColor,
             shape: BoxShape.circle,
           ),
           selectedDecoration: BoxDecoration(
-            color: Colors.deepOrange,
+            color: Colors.blueAccent,
             shape: BoxShape.circle,
           ),
           todayTextStyle: TextStyle(color: Colors.white),
